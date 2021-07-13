@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<body>
-		<h1>Send Command to Particle</h1>
+		<h1>Send a command to Particle</h1>
 		<form>
 			<label for='device_id'>ID:</label>
 			<input type='text' id='device_id' name='device_id'><br><br>
@@ -11,7 +11,7 @@
 			<input type='text' id='value' name='value'><br><br>	
 		</form>
 		<button onclick="sendRequest()">Submit</button>
-		<p>Click Submit to send parameter-value pair to Partice device</p>
+		<p>Click Submit to send parameter-value pair to Particle device</p>
 		<script>
 			function sendRequest(){
 				var id = document.getElementById('device_id').value;
@@ -22,7 +22,7 @@
 				json_body['id'] = id;
 				json_body[param] = value;
 				var data = JSON.stringify(json_body);
-				console.log(data);
+
 				const http = new XMLHttpRequest();
 				const url='https://hub-to-db.azurewebsites.net/api/Message_To_Device'
 				
@@ -32,7 +32,12 @@
 				http.send(data);
 				http.onreadystatechange = function() {
 					if (http.readyState === 4 && http.status === 200) {
-						document.getElementById
+						console.log(http.body);
+						document.getElementById('param').reset();
+						document.getElementById('value').reset();
+					}
+					else {
+						console.log("not successful");
 					}
 				};
 			}
