@@ -32,12 +32,12 @@
 				http.send(data);
 				http.onreadystatechange = function() {
 					if (http.readyState === 4 && http.status === 200) {
-						console.log(http.body);
-						document.getElementById('param').reset;
-						document.getElementById('value').reset;
+						console.log('done');
+						document.getElementById('param').value = '';
+						document.getElementById('value').value = '';
 					}
 					else {
-						console.log("not successful");
+						console.log('not done');
 					}
 				};
 			}
