@@ -37,8 +37,9 @@
 						document.getElementById('status').innerHTML = 'Sent!';
 						document.getElementById('param').value = '';
 						document.getElementById('value').value = '';
-					}
-					else {
+					} else if (http.readyState === 4 && http.status === 400) {
+						document.getElementById('status').innerHTML = 'Error';
+					} else {
 						document.getElementById('status').innerHTML = 'Sending...';
 					}
 				};
