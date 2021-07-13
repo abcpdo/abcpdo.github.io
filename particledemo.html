@@ -8,16 +8,16 @@
 			<label for='param'>Parameter:</label>
 			<input type='text' id='param' name='param'><br><br>
 			<label for='value'>Value:</label>
-			<input type='text' id='value' name='value'><br><br>
-			<input type="submit" value="Submit">
-			<p>Click Submit to send parameter-value pair to Partice device</p>	
+			<input type='text' id='value' name='value'><br><br>	
 		</form>
+		<button onclick="sendRequest()">Submit</button>
+		<p>Click Submit to send parameter-value pair to Partice device</p>
 		<script>
 			function sendRequest(){
 				var id = document.getElementById('device_id').value;
 				var param = document.getElementById('param').value;
 				var value = document.getElementById('value').value;
-				
+
 				var json_body = {};
 				json_body['id'] = id;
 				json_body[param] = value;
