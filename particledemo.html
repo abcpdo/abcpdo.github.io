@@ -2,16 +2,33 @@
 <html>
 	<body>
 		<h1>Send Command to Particle</h1>
-		<label for='device_id'>ID:</label>
-		<input type='text' id='device_id' name='device_id'><br><br>
-		<label for='param'>Parameter:</label>
-		<input type='text' id='param' name='param'><br><br>
-		<label for='value'>Value:</label>
-		<input type='text' id='value' name='value'><br><br>
-		<input type="submit" value="Submit">
-		<p>Click Submit to send parameter-value pair to Partice device</p>
+		<form>
+			<label for='device_id'>ID:</label>
+			<input type='text' id='device_id' name='device_id'><br><br>
+			<label for='param'>Parameter:</label>
+			<input type='text' id='param' name='param'><br><br>
+			<label for='value'>Value:</label>
+			<input type='text' id='value' name='value'><br><br>
+			<input type="submit" value="Submit">
+			<p>Click Submit to send parameter-value pair to Partice device</p>	
+		</form>
 		<script>
-		
+			function sendRequest(){
+				var id = document.getElementById('device_id').value;
+				var param = document.getElementById('param').value;
+				var value = document.getElementById('value').value;
+				const http = new XMLHttpRequest();
+				const url='url'
+				http.open("POST", url, true);
+				http.setRequestHeader("Content-Type", "application/json");
+				http.onreadystatechange = function() {
+					if (http.readyState === 4 && http.status === 200) {
+						document.getElementById
+					}
+				};
+				var data = JSON.stringify({'device_id':id, param:value});
+				http.send(data);
+			}
 		</script>
 	</body>
 </html>
