@@ -10,7 +10,9 @@
 			<label for='value'>Value:</label>
 			<input type='text' id='value' name='value'><br><br>	
 		</form>
-		<button onclick="sendRequest()">Submit</button>
+		<button onclick="sendRequest()">Submit</button><br><br>
+		<label id='status_label'>Status:</label>
+		<label id='status'></label>
 		<p>Click Submit to send parameter-value pair to Particle device</p>
 		<script>
 			function sendRequest(){
@@ -32,12 +34,12 @@
 				http.send(data);
 				http.onreadystatechange = function() {
 					if (http.readyState === 4 && http.status === 200) {
-						console.log('done');
+						document.getElementById('status').value = 'Successful';
 						document.getElementById('param').value = '';
 						document.getElementById('value').value = '';
 					}
 					else {
-						console.log('not done');
+						document.getElementById('status').value = 'Sending...';
 					}
 				};
 			}
