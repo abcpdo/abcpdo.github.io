@@ -34,11 +34,11 @@
 				http.send(data);
 				http.onreadystatechange = function() {
 					if (http.readyState === 4 && http.status === 200) {
-						document.getElementById('status').innerHTML = 'Sent!';
+						document.getElementById('status').innerHTML = 'Sent Successfully!';
 						document.getElementById('param').value = '';
 						document.getElementById('value').value = '';
 					} else if (http.readyState === 4 && http.status === 400) {
-						document.getElementById('status').innerHTML = 'Error';
+						document.getElementById('status').innerHTML = 'Error: Cannot connect to device';
 					} else {
 						document.getElementById('status').innerHTML = 'Sending...';
 					}
