@@ -10,10 +10,10 @@
 			<label for='value'>Value:</label>
 			<input type='text' id='value' name='value'><br><br>	
 		</form>
-		<button onclick="sendRequest()">Submit</button><br><br>
+		<button onclick="sendRequest()">Submit</button>
+		<p>Click Submit to send parameter-value pair to Particle device</p><br><br>
 		<label id='status_label'>Status:</label>
 		<label id='status'></label>
-		<p>Click Submit to send parameter-value pair to Particle device</p>
 		<script>
 			function sendRequest(){
 				var id = document.getElementById('device_id').value;
